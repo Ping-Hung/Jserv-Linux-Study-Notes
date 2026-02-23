@@ -79,7 +79,7 @@
 - Set a valid goal and actually work towards it >> religously following
   lectures.
 - Think
-> How to use knowledge of Linux Kernel to solve real world problems.
+> How to apply knowledge from the Linux kernel to solve real world problems.
 - Know who are the users and what do they mostly care about to understand why
   the kernel is designed in its way.
 - Use LFX's YouTube channel as a resource
@@ -90,6 +90,10 @@
 - Linux Kernel is not merely another operating system, it is a snapshot of the entire CS knowledge landscape.
 - Do homework Do homework Do homework to max learning experience
 - 誠實面對自己, 別把學習當成一學期的事。一學期學不完就明年來（或看以前錄影）
+- Learn with an application mindset, always ask 
+> How may I apply this concept/understanding to a real problem?
+
+as you learn.
 
 
 # Linux Kernel
