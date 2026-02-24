@@ -1,3 +1,4 @@
+Date: 2/22/2026
 # 2026 JSERV Linux kernel Development
 - 3 core requirement class loading equivalent, although 3-credit hours long.
 - **Must do <mark>homework</mark>** for most learning outcomes.
