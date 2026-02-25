@@ -4,6 +4,47 @@
 - Flip through [Course Tips and
   Logistics](https://docs.google.com/presentation/d/1LIP64FQRa9J34ks9rKPmXmNQ-ZhL91qfB9KkF2nr30g/edit), be ware of hyperlinks in slides.
 
+# Background Knowledge
+* Heard-of (but not fully mastered) concepts/topics/ideas are checked
+1. Data Structures:
+    - [x] Circular linked-lists
+    - [x] Red-Black Tree
+    - [x] Abstract Data Type
+2. Computer Organization and Architecture:
+    - [x] Bitwise operation
+    - [x] Binary representation
+    - [x] Floating point
+    - [ ] Cache
+    - [ ] Memory
+    - [x] ISA
+    - [ ] SMP
+    - [ ] Atomics
+3. Algorithms
+    - [x] Recursive programming
+    - [x] Time/Space complexity analysis
+    - [ ] Worst-Case execution time
+    - [ ] Concurrent algorithms
+
+4. C Programming Language
+    - [x] C99/C11 spec
+    - [x] Pointers(addersses)
+    - [x] OOP
+    - [ ] Performance benchmark + analysis
+    - [x] Debugging (Assume GDB and Valgrind)
+    - [x] Design patterns
+    - [x] Unit Test
+
+5. Statistics and Probability
+    - Like statistical mechanics, 足以模擬微小尺度程式運作的各種原理
+
+6. Miscellaneous
+    - [ ] Cyber-Security
+    - [ ] Cryptography
+    - [ ] Computer Graphics
+    - [ ] Computer Networks
+    - [ ] 異質多核運算 (Heterogeneous comoputing)
+    - [x] Code Quality
+
 # Agenda Tips:
 - **The First 6 Weeks** are the most intense weeks
     - You might have to pull all-nighters
