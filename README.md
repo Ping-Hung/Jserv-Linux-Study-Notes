@@ -60,3 +60,20 @@
 2. Be truthful to yourself
 3. Read Course Material (Mostly HackMD files online)
 4. Join Discussion
+
+# Learning Frameworks/Tips
+## Think On Paper
+When encounter new concepts
+1. **_Make it wrong:_**
+    - Jot down as many concepts as possible
+    - Conjecture/Infer how these concepts connect to each other
+    - It COULD be **wrong**, but that's totally <mark>**FINE**</mark>
+2. **_Make it shorter_:**
+    - Condense and distill
+    - Create mental cues from notes taken in step 1
+3. **_Make it Again_:**
+    - Fix your notes so it refelects the actual, correct understanding
+    - Reorganize + Clean up to strengthen retention
+    - **Tip**: look at your notes, if they are 1. messoy or overwhelming
+      or 2. contains mistakes → reorganize.
+
