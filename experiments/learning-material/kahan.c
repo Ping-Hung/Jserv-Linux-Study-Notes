@@ -6,14 +6,17 @@ static inline float kahan_sum();
 
 int main(void)
 {
+    float sum;
+
     printf("regular summation from 1 to 10000\n"
            "expecting 50005000\n");
-    float sum = regular_sum();
+    sum = regular_sum();
     printf("sum = %d  (as int), %.3f (as float)\n", (int)sum, sum);
 
     printf("Kahan summation algorithm from 1 to 10000\n");
     sum = kahan_sum();
     printf("sum = %d  (as int), %.3f (as float)\n", (int)sum, sum);
+
     return EXIT_SUCCESS;
 }
 
