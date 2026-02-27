@@ -21,7 +21,7 @@ static inline float regular_sum()
 {
     float sum = 0.0f;
     for (int i = 0; i < 10000; i++) {
-        sum += i;   /* Addition introduces round-off error */
+        sum += i + 1;   /* Addition introduces round-off error */
     }
     return sum;
 }
