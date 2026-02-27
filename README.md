@@ -1,8 +1,41 @@
 # Jserv-Linux-Study-Notes
 - Keep up with the [schedule](https://wiki.csie.ncku.edu.tw/linux/schedule)
 - Be aware of what's on the [FB Group](https://www.facebook.com/groups/system.software2026/)
-- Flip through [Course Tips and
-  Logistics](https://docs.google.com/presentation/d/1LIP64FQRa9J34ks9rKPmXmNQ-ZhL91qfB9KkF2nr30g/edit), be ware of hyperlinks in slides.
+- Flip through [Course Tips and Logistics](https://docs.google.com/presentation/d/1LIP64FQRa9J34ks9rKPmXmNQ-ZhL91qfB9KkF2nr30g/edit)
+    - be ware of hyperlinks in slides.
+
+# Resource Reading Tips
+- Consult first hand resource first e.g.
+    - `git log` (on Linux kernel)
+    - Linux Kernel Mailing-List (LKML)
+    - Authorized sources (gcc standards/glibc manuals)
+- AI工具是輔助性質，可用來撰寫測試程式碼和收集資訊，但主要的**推測、查證、分析，和討論**，都該由人類進行
+- When learning math (or related) materials, focus on
+  definition + properties
+    - So you know implementation limitations
+
+# HW Tips:
+- **MUST** list out where you are confused/not understand.
+    - Be as specific as possible, list out concept, section,
+      page...
+- Don't expect to finish _everything perfectly on-time_, but you **MUST SHOW EFFORT**.
+- Learning goal: be able to describe phenomenon with
+  math/physics, if cannot, your understanding isn't as
+  thorough.
+    - Must be as truthful to yourself as possible.
+        
+# Agenda Tips:
+- **The First 6 Weeks** are the most intense weeks
+    - You might have to pull all-nighters
+    - HW every week.
+        - 16-hours of commitment
+- 18 weeks (regular scheduled) + 2 extra weeks
+
+
+# Readings (A changing list)
+- [x] [核心定點數與EWMA](https://hackmd.io/@sysprog/HJEPQn5ubx)
+- [x] [初步解讀浮點數](https://hackmd.io/@sysprog/B1dc2oq_Wx)
+- [ ] [HW1](https://hackmd.io/@sysprog/linux2026-warmup)
 
 # Background Knowledge
 * Heard-of (but not fully mastered) concepts/topics/ideas are checked
@@ -45,14 +78,11 @@
     - [ ] 異質多核運算 (Heterogeneous comoputing)
     - [x] Code Quality
 
-# Agenda Tips:
-- **The First 6 Weeks** are the most intense weeks
-    - You might have to pull all-nighters
-- 18 weeks (regular scheduled) + 2 extra weeks
 
 # Links
 1. [context switch and spinlock: probability and statistics](https://hackmd.io/@sysprog/linux-spinlock-scalability)
 2. [核心定點數與EWMA](https://hackmd.io/@sysprog/HJEPQn5ubx)
+3. [初步解讀浮點數](https://hackmd.io/@sysprog/B1dc2oq_Wx)
 3. [How probability and information entropy are used in modern OS](https://hackmd.io/@sysprog/from-entropy-to-os)
 
 # How to Follow Along
