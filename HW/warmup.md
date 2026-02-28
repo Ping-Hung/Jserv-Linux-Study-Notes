@@ -34,11 +34,34 @@ More formally, for each bit (`x_i`, `y_i`) of `x`, `y`,
     carry:  c = x_i AND y_i
 ```
 
-Observe that both operations (`XOR` and `AND`) composing addition are commutative, which implies addition of k-bit integers is also commutative.  
+Observe that both operations (`XOR` and `AND`) composing addition are
+commutative, which implies addition of k-bit integers is also commutative.  
 
-To show the 2 remaining properties (existence of inverse for all elements in
-$G$ and associativity), we'll use 2's complement as the definition of
-(negative) inverse and permits overflow to occur in addition.
+To show the 2 remaining properties, existence of inverse for all elements in
+$G$ and associativity, we'll use 2's complement as the definition of additive
+(or negative) inverse and permits overflow to occur in addition.
+
+**Proposition**: Addition on ring of integers modulo $2^k$
+($\mathbb{Z}/2^{k}\mathbb{Z}$) is closed under addition.  
+
+**Proof:**  
+$\forall x,y \in \mathbb{Z}/2^{k}\mathbb{Z}$, by definition of the ring,
+$$ 
+    \begin{align} 
+        x &\equiv \pmod 2^k \\
+        y &\equiv \pmod 2^k 
+    \end{align} 
+$$.  
+Their (modulo) sum is thus  
+$$ x + y \pmod 2^k \equiv \(x \pmod 2^k + y \pmod 2^k\) \pmod 2^k $$, which is
+also an element of $\mathbb{Z}/2^{k}\mathbb{Z}$, thus proof closure of (modulo)
+addition.
+
+Suppose $\forall x,y \in \mathbb{Z}/2^{k}\mathbb{Z}$, $z = x + y$, by closure
+requirement, $z \in \mathbb{Z}/2^{k}\mathbb{Z}$ must hold, or equivalently,
+$$ x + y \equiv z \pmod 2^k $$
+
+
 
     
 
