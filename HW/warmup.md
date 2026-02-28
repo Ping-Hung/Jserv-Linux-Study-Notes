@@ -59,7 +59,7 @@ $\forall x,y \in \mathbb{Z}/2^{k}\mathbb{Z}$, by definition of the ring,
 
 Their (modulo) sum is thus  
 ```math
-x + y \pmod{2^k} \equiv (a \pmod{2^k} + a \pmod {2^k}) \pmod{2^k},
+x + y \pmod{2^k} \equiv (a \pmod{2^k} + b \pmod {2^k}) \pmod{2^k},
 ```
 an element of $\mathbb{Z}/2^{k}\mathbb{Z}$ by definition, which demonstrates
 closure of (modulo) addition.
@@ -82,8 +82,8 @@ This meant
 0b11...1 (unsigned max) + 1 (0b1) = 0b00...0,
 ```
 ignoring MSB's carry. Similarly, `0b11...1 + 2 = 0b00...1`, `0b11...1 + 3 = 0b00...10`, and the list goes on.      
-Observe that this "wraps around" behavior (increment $2^{k}$ by an arbitrary integer value $m$ yields $m - 1$) ensures the sum to
-be a member of $\mathbb{Z}/2^{k}\mathbb{Z}$, which preserves _closure_. Similar reasoning could be applied to signed values.
+Observe that this "wraps around" behavior (increment $2^{k} - 1$ by an arbitrary integer value $m$ yields $m - 1$) ensures the sum 
+to stay in $\mathbb{Z}/2^{k}\mathbb{Z}$, which preserves _closure_. Similar reasoning could be applied to signed values.
 
 **Inverse Element Proof**:  
 We previously showed that `0b00...0` (k-bits of 0) is the encoding for the $0$ element, now we have to
@@ -123,20 +123,23 @@ x + y + z = (x + y) + z
 To hardware (the ALU), this meant performing `k` bit addition with `x` and `y` first, temporarily save
 this value, then perform `k` bit addition with `z`.
 
-Thanks to the permission of integer overflow, when the value of `x + y` overflows, it "wraps around" to 
-the smallest `k` bit value `0b000...0`. Thus, it is actually
+Thanks to the permission of integer overflow, when the value of `x + y` (or any 2 operands) overflows, the carry bit is 
+ignored and the sum "wraps around"  to the smallest `k` bit value `0b000...0`. Thus, it is actually
 ```math
     \begin{align}
         x + y \equiv x + y \pmod {2^{k}}
     \end{align}
 ```
 
-Applying properties of modular arithematic, $x + y + z$ could be rewrite as
+Applying properties of modular arithematic, $x + y + z$ could be rewritten as
 ```math
     \begin{align}
-        x + y + z \pmod{2^{k}} &= x \pmod{2^{k}} + y \pmod{2^{k}} + z \pmod{2^{k}} \\
+        x + y + z \pmod{2^{k}} &= (x \pmod{2^{k}} + y \pmod{2^{k}} + z \pmod{2^{k}}) \pmod{2^k}  \\
+        &= ((x + y \pmod{2^k}) + z \pmod{2^k}) \pmod{2^k}  \\
+        &= (x \pmod{2^k} + (y + z \pmod{2^k})) \pmod{2^k}
     \end{align}
 ```
+Which demonstrates associativity ($$\forall x, y, z \in G, x + y + z = (x + y) + z = x + (y + z)$$)
 
     
 
@@ -145,5 +148,5 @@ Applying properties of modular arithematic, $x + y + z$ could be rewrite as
 
 
 # References
-1. https://www.math.purdue.edu/~arapura/algebra/algebra.pdf
-2. https://chatgpt.com/share/69a2d1e1-7258-800f-af92-b1765d6a7075
+1. [https://www.math.purdue.edu/~arapura/algebra/algebra.pdf](https://www.math.purdue.edu/~arapura/algebra/algebra.pdf)
+3. [https://chatgpt.com/share/69a2d1e1-7258-800f-af92-b1765d6a7075](https://chatgpt.com/share/69a2d1e1-7258-800f-af92-b1765d6a7075)
