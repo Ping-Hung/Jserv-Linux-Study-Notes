@@ -86,13 +86,12 @@ Observe that this "wraps around" behavior (increment $2^{k}$ by an arbitrary int
 be a member of $\mathbb{Z}/2^{k}\mathbb{Z}$, which preserves _closure_. Similar reasoning could be applied to signed values.
 
 **Inverse Element Proof**:  
-We previously showed that `0b00...0` (k-bits of 0) is the encoding for the $0$ element, now we have to demonstrate how modern 
-computers modelled additive inverse (negative integers) with finit bits.
+We previously showed that `0b00...0` (k-bits of 0) is the encoding for the $0$ element, now we have to
+demonstrate how modern computers modelled additive inverse (negative integers) with finite bits with 2's complement.
 
-Modern computers use 2's complement to model additive inverse of signed integers. Given a signed value `x`, its 2's complement is
-`~x + 1`, where `~` inverts every bit in `x`. Combining this definition with the permission to overflow and ignore the carry bit,
-we can show $\forall x \in \mathbb{Z}/2^k\mathbb{Z}, \exists \bar{x}$ such that $x + \bar{x} = 0$.
-
+Given a signed value `x`, its 2's complement is `~x + 1`, where `~` inverts every bit in `x`. 
+Combining this definition with the permission to overflow and ignore the carry bit, we can show 
+$\forall x \in \mathbb{Z}/2^k\mathbb{Z}, \exists \bar{x}$ such that $x + \bar{x} = 0$.
 
 Suppose `x` is the maximum of all `k` bit signed values, and `-x` is its 2's complement.
 
@@ -112,7 +111,32 @@ _____________________
 For values smaller than the signed maximum of `k` bit values (`x`, which is $2^{k-1} - 1$), subtract their difference from `x` then
 add it to `-x`. This way, we find a way to "create" all additive inverse for `k` bit signed numbers.
 
+Lastly, a proof on associativity is presented, which relies on hardware implementation and overflow 
+permission.
 
+**Associativity Proof**
+Consider 3 `k` bit signed integers `x`, `y`, and `z`, `x + y + z` will be performed left-to-right since
+both `+` share the same precedence and addition is left associated. Thus, 
+```
+x + y + z = (x + y) + z
+```
+To hardware (the ALU), this meant performing `k` bit addition with `x` and `y` first, temporarily save
+this value, then perform `k` bit addition with `z`.
+
+Thanks to the permission of integer overflow, when the value of `x + y` overflows, it "wraps around" to 
+the smallest `k` bit value `0b000...0`. Thus, it is actually
+```math
+    \begin{align}
+        x + y \equiv x + y \pmod {2^{k}}
+    \end{align}
+```
+
+Applying properties of modular arithematic, $x + y + z$ could be rewrite as
+```math
+    \begin{align}
+        x + y + z &= 
+    \end{align}
+```
 
     
 
