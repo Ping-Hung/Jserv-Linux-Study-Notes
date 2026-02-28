@@ -46,20 +46,20 @@ $G$ and associativity, we'll use 2's complement as the definition of additive
 
 **Proof:**  
 $\forall x,y \in \mathbb{Z}/2^{k}\mathbb{Z}$, by definition of the ring,
-$$ 
-    \begin{align} 
-        x &\equiv \pmod 2^k \\
-        y &\equiv \pmod 2^k 
-    \end{align} 
-$$.  
-Their (modulo) sum is thus  
-$$ x + y \pmod 2^k \equiv \(x \pmod 2^k + y \pmod 2^k\) \pmod 2^k $$, which is
-also an element of $\mathbb{Z}/2^{k}\mathbb{Z}$, thus proof closure of (modulo)
-addition.
 
-Suppose $\forall x,y \in \mathbb{Z}/2^{k}\mathbb{Z}$, $z = x + y$, by closure
-requirement, $z \in \mathbb{Z}/2^{k}\mathbb{Z}$ must hold, or equivalently,
-$$ x + y \equiv z \pmod 2^k $$
+```math
+\begin{align} 
+    x &\equiv x \pmod{2^k} \\ 
+    y &\equiv y \pmod{2^k} 
+\end{align}
+```
+
+Their (modulo) sum is thus  
+```math
+x + y \pmod{2^k} \equiv (x \pmod{2^k} + y \pmod {2^k}) \pmod{2^k},
+```
+an element of $\mathbb{Z}/2^{k}\mathbb{Z}$, which shows closure of (modulo)
+addition.
 
 
 
