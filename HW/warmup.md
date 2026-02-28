@@ -24,7 +24,7 @@ usually the unique binary encoding of the $0$ element.
 The second property to show is commtativity (property 2).  
 
 Suppose we are adding 2 k-bit integers `x` and `y`, one trivial hardware
-implementation of such operation is the (ripple carry) full adder, which keep
+implementation of such operation is the **(ripple carry) full adder**, which keep
 tracks of a carry `c` while performing bitwise `XOR` operations `x` and `y`,
 starting from lowest significant bit (LSB).   
 
@@ -67,20 +67,50 @@ closure of (modulo) addition.
 We'll proceed to verify **proposition** (closure property), associativity, and
 the existence of inverse elements in integer computer arithmetic.
 
-
-
 **Proposition (Closure) Proof**:  
 Modern computers represent (possibly) infinite integers with finite bits of
-storage and permits overflow to model $\mathbb{Z}/2^{k}\mathbb{Z}$ and _closure_.
+storage and permits overflow to model $\mathbb{Z}/2^{k}\mathbb{Z}$ and ensure _closure_.
 
 | |value|pattern/encoding|
 |:---|:---|:---|
-|signed max| $2^(k-1) - 1$| `0b01...1`, k - 1 `1`'s, MSB = 0|
+|signed max| $2^{k-1} - 1$| `0b01...1`, k - 1 `1`'s, MSB = 0|
 |unsigned max| $2^k - 1$| `0b1...1`, k `1`'s, MSB = 1|
 
-Suppose `k = 8`, i.e. 8-bits of storage is alloted, for signed integers
+Addition will still be performed using aforementioned **(ripple carry) full adder**, with premission to overflow.  
+This meant 
+```
+0b11...1 (unsigned max) + 1 (0b1) = 0b00...0,
+```
+ignoring MSB's carry. Similarly, `0b11...1 + 2 = 0b00...1`, `0b11...1 + 3 = 0b00...10`, and the list goes on.      
+Observe that this "wraps around" behavior (increment $2^{k}$ by an arbitrary integer value $m$ yields $m - 1$) ensures the sum to
+be a member of $\mathbb{Z}/2^{k}\mathbb{Z}$, which preserves _closure_. Similar reasoning could be applied to signed values.
+
+**Inverse Element Proof**:  
+We previously showed that `0b00...0` (k-bits of 0) is the encoding for the $0$ element, now we have to demonstrate how modern 
+computers modelled additive inverse (negative integers) with finit bits.
+
+Modern computers use 2's complement to model additive inverse of signed integers. Given a signed value `x`, its 2's complement is
+`~x + 1`, where `~` inverts every bit in `x`. Combining this definition with the permission to overflow and ignore the carry bit,
+we can show $\forall x \in \mathbb{Z}/2^k\mathbb{Z}, \exists \bar{x}$ such that $x + \bar{x} = 0$.
 
 
+Suppose `x` is the maximum of all `k` bit signed values, and `-x` is its 2's complement.
+
+```
+x = 0b01...1 (k - 1 1's)
+-x = ~x + 1 = ~(0b01...1) + 1 = 0b10...01 (k - 2 0's between 2 1'2)
+```
+
+Adding them up, it is evident that `-x` is indeed the inverse element of `x`
+```
+    x = 0b01...11
++) -x = 0b10...01
+_____________________
+   0  = 0b0000000
+```
+
+For values smaller than the signed maximum of `k` bit values (`x`, which is $2^{k-1} - 1$), subtract their difference from `x` then
+add it to `-x`. This way, we find a way to "create" all additive inverse for `k` bit signed numbers.
 
 
 
