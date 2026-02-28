@@ -1,8 +1,9 @@
 # 探討 <[解讀計算機編碼](https://hackmd.io/@sysprog/binary-representation)>
 ## **Q1:** 為何計算機的加法在固定 $k$ 位元下，本質等價於 <mark> $\mathbb{Z}/2^{k}\mathbb{Z}$ 上的加法</mark>?  
 **A1:** $\mathbb{Z}/2^{k}\mathbb{Z}$ means "ring of integers modulo $2^{k}$",
-if addition ($+$) is the only operator of concern, then $G =
-\(\mathbb{Z}/2^{k}\mathbb{Z}, +\)$ is an Abelian group, which 
+or more informally, "set of integers that wraps around $2^k$" if addition ($+$)
+is the only operator of concern, then $G = \(\mathbb{Z}/2^{k}\mathbb{Z}, +\)$
+is an Abelian group, which 
 
 1. Satisfies Associativity, formally:  
 $$\forall x, y, z \in G, x + y + z = (x + y) + z = x + (y + z)$$.
@@ -37,13 +38,13 @@ More formally, for each bit (`x_i`, `y_i`) of `x`, `y`,
 Observe that both operations (`XOR` and `AND`) composing addition are
 commutative, which implies addition of k-bit integers is also commutative.  
 
-To show the 2 remaining properties, existence of inverse for all elements in
-$G$ and associativity, we'll use 2's complement as the definition of additive
-(or negative) inverse, treat addition as addition modulo to ensure addition is
-closed in $\mathbb{Z}/2^{k}\mathbb{Z}$, and permits integer overflow.
+To show the 2 remaining properties, associativity and existence of inverse
+elements $\forall x \in \mathbb{Z}/2^{k}\mathbb{Z} $, we'll first treat
+addition in this domain as additive modulo to ensure addition is closed in the
+domain.
 
 **Proposition**: Addition modulo in the ring of integers modulo $2^k$
-($\mathbb{Z}/2^{k}\mathbb{Z}$) is closed under addition.  
+($\mathbb{Z}/2^{k}\mathbb{Z}$) is _closed_ under addition.  
 
 **Proof:**  
 $\forall x,y \in \mathbb{Z}/2^{k}\mathbb{Z}$, by definition of the ring,
@@ -60,8 +61,26 @@ Their (modulo) sum is thus
 ```math
 x + y \pmod{2^k} \equiv (a \pmod{2^k} + a \pmod {2^k}) \pmod{2^k},
 ```
-which an element of $\mathbb{Z}/2^{k}\mathbb{Z}$, which shows closure of (modulo)
-addition.
+an element of $\mathbb{Z}/2^{k}\mathbb{Z}$ by definition, which demonstrates
+closure of (modulo) addition.
+
+We'll proceed to verify **proposition** (closure property), associativity, and
+the existence of inverse elements in integer computer arithmetic.
+
+
+
+**Proposition (Closure) Proof**:  
+Modern computers represent (possibly) infinite integers with finite bits of
+storage and permits overflow to model $\mathbb{Z}/2^{k}\mathbb{Z}$ and _closure_.
+
+| |value|pattern/encoding|
+|:---|:---|:---|
+|signed max| $2^(k-1) - 1$| `0b01...1`, k - 1 `1`'s, MSB = 0|
+|unsigned max| $2^k - 1$| `0b1...1`, k `1`'s, MSB = 1|
+
+Suppose `k = 8`, i.e. 8-bits of storage is alloted, for signed integers
+
+
 
 
 
@@ -73,3 +92,4 @@ addition.
 
 # References
 1. https://www.math.purdue.edu/~arapura/algebra/algebra.pdf
+2. https://chatgpt.com/share/69a2d1e1-7258-800f-af92-b1765d6a7075
