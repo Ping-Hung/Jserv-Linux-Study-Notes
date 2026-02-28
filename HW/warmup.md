@@ -1,7 +1,7 @@
 # 探討 <[解讀計算機編碼](https://hackmd.io/@sysprog/binary-representation)>
 ## **Q1:** 為何計算機的加法在固定 $k$ 位元下，本質等價於 <mark> $\mathbb{Z}/2^{k}\mathbb{Z}$ 上的加法</mark>?  
 **A1:** $\mathbb{Z}/2^{k}\mathbb{Z}$ means "ring of integers modulo $2^{k}$",
-or more informally, "set of integers that wraps around $2^k$" if addition ($+$)
+or more informally, "set of integers that wraps around $2^k$", if addition ($+$)
 is the only operator of concern, then $G = \(\mathbb{Z}/2^{k}\mathbb{Z}, +\)$
 is an Abelian group, which 
 
@@ -134,7 +134,7 @@ the smallest `k` bit value `0b000...0`. Thus, it is actually
 Applying properties of modular arithematic, $x + y + z$ could be rewrite as
 ```math
     \begin{align}
-        x + y + z &= 
+        x + y + z \pmod{2^{k}} &= x \pmod{2^{k}} + y \pmod{2^{k}} + z \pmod{2^{k}} \\
     \end{align}
 ```
 
