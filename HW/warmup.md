@@ -39,9 +39,10 @@ commutative, which implies addition of k-bit integers is also commutative.
 
 To show the 2 remaining properties, existence of inverse for all elements in
 $G$ and associativity, we'll use 2's complement as the definition of additive
-(or negative) inverse and permits overflow to occur in addition.
+(or negative) inverse, treat addition as addition modulo to ensure addition is
+closed in $\mathbb{Z}/2^{k}\mathbb{Z}$, and permits integer overflow.
 
-**Proposition**: Addition on ring of integers modulo $2^k$
+**Proposition**: Addition modulo in the ring of integers modulo $2^k$
 ($\mathbb{Z}/2^{k}\mathbb{Z}$) is closed under addition.  
 
 **Proof:**  
@@ -49,16 +50,17 @@ $\forall x,y \in \mathbb{Z}/2^{k}\mathbb{Z}$, by definition of the ring,
 
 ```math
 \begin{align} 
-    x &\equiv x \pmod{2^k} \\ 
-    y &\equiv y \pmod{2^k} 
+    x &\equiv a \pmod{2^k} \\ 
+    y &\equiv b \pmod{2^k} \\
+    \exists a, b \in \mathbb{Z}
 \end{align}
 ```
 
 Their (modulo) sum is thus  
 ```math
-x + y \pmod{2^k} \equiv (x \pmod{2^k} + y \pmod {2^k}) \pmod{2^k},
+x + y \pmod{2^k} \equiv (a \pmod{2^k} + a \pmod {2^k}) \pmod{2^k},
 ```
-an element of $\mathbb{Z}/2^{k}\mathbb{Z}$, which shows closure of (modulo)
+which an element of $\mathbb{Z}/2^{k}\mathbb{Z}$, which shows closure of (modulo)
 addition.
 
 
