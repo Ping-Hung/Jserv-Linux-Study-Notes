@@ -44,7 +44,7 @@ addition in this domain as additive modulo to ensure addition is closed in the
 domain.
 
 **Proposition**: Addition modulo in the ring of integers modulo $2^k$
-($\mathbb{Z}/2^{k}\mathbb{Z}$) is _closed_ under addition.  
+($\mathbb{Z}/2^{k}\mathbb{Z}$) is _closed_.  
 
 **Proof:**  
 $\forall x,y \in \mathbb{Z}/2^{k}\mathbb{Z}$, by definition of the ring,
