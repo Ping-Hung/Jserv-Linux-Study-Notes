@@ -53,7 +53,7 @@ $\forall x,y \in \mathbb{Z}/2^{k}\mathbb{Z}$, by definition of the ring,
 \begin{align} 
     x &\equiv a \pmod{2^k} \\ 
     y &\equiv b \pmod{2^k} \\
-    \exists a, b \in \mathbb{Z}
+    \exists a, b &\in \mathbb{Z}
 \end{align}
 ```
 
@@ -98,7 +98,7 @@ Suppose `x` is the maximum of all `k` bit signed values, and `-x` is its 2's com
 
 ```
 x = 0b01...1 (k - 1 1's)
--x = ~x + 1 = ~(0b01...1) + 1 = 0b10...01 (k - 2 0's between 2 1'2)
+-x = ~x + 1 = ~(0b01...1) + 1 = 0b10...01 (k - 2 0's between 2 1's)
 ```
 
 Adding them up, it is evident that `-x` is indeed the inverse element of `x`
