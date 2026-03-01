@@ -108,8 +108,10 @@ _____________________
    0  = 0b0000000
 ```
 
-For values smaller than the signed maximum of `k` bit values (`x`, which is $2^{k-1} - 1$), subtract their difference from `x` then
-add it to `-x`. This way, we find a way to "create" all additive inverse for `k` bit signed numbers.
+For values smaller than the signed maximum of `k` bit values (`x`, which is $2^{k-1} - 1$), one could follow 
+procedure below to "create" all additive inverse for `k` bit signed numbers.
+1. Subtract them from `x`
+2. Add it to `-x`.
 
 Lastly, a proof on associativity is presented, which relies on hardware implementation and overflow 
 permission.
@@ -120,11 +122,12 @@ both `+` share the same precedence and addition is left associated. Thus,
 ```
 x + y + z = (x + y) + z
 ```
-To hardware (the ALU), this meant performing `k` bit addition with `x` and `y` first, temporarily save
-this value, then perform `k` bit addition with `z`.
+To hardware (the ALU), this meant performing `k` bit addition with `x` and `y` first, temporarily saving
+this value, then performing `k` bit addition with `z`.
 
 Thanks to the permission of integer overflow, when the value of `x + y` (or any 2 operands) overflows, the carry bit is 
-ignored and the sum "wraps around"  to the smallest `k` bit value `0b000...0`. Thus, it is actually
+ignored and the sum "wraps around" the smallest `k` bit value `0b000...0`. Thus, (hardware) addition between `x` and `y` 
+is actually
 ```math
     \begin{align}
         x + y \equiv x + y \pmod {2^{k}}
