@@ -104,6 +104,10 @@ When encounter new concepts
 3. **_Make it Again_:**
     - Fix your notes so it refelects the actual, correct understanding
     - Reorganize + Clean up to strengthen retention
-    - **Tip**: look at your notes, if they are 1. messoy or overwhelming
-      or 2. contains mistakes → reorganize.
+    - **Tip**: look at your notes, if they are 
+        1. messy or overwhelming or
+        2. contains mistakes 
+    → reorganize.
 
+# Resources
+1. [C99 Standards](https://www.open-std.org/jtc1/sc22/wg14/www/docs/n1256.pdf)

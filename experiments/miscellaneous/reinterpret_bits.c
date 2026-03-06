@@ -24,5 +24,12 @@ int main(void)
            "value as char %d\nvalue as unsigned char %u\n", 
            u_value.as_char, u_value.as_uchar);
 
+    union {int as_int; float as_float;} u_test = {.as_float = 1.0f};
+    printf("u_test = {\n"
+           "           .as_int = %d\n"
+           "           .as_float = %f\n"
+           "         }\n",
+           u_test.as_int, u_test.as_float);
+
     return EXIT_SUCCESS;
 }
