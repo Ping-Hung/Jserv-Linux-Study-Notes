@@ -28,5 +28,16 @@
 - An OS sits between hardware and (userspace) C code. Has conventions to follow
     - See details in C99 Standards 5.1.2.2 onwards.
 
-
+## Aliasing
+- Different names for the same location in memory (different names for the same
+  object (usually done with pointers)).
+    - Sources: 
+        1. Purdue ECE 468 Aliasing slides
+        2. [](https://cellperformance.beyond3d.com/articles/2006/06/understanding-strict-aliasing.html)
+## Strict Aliasing
+- An object in memory can only be accessed through pointers of allowed types.
+  Violating this rule can lead to undefined behavior, where the compiler might
+  make incorrect assumptions about the behavior or the program, potentially
+  leading to unexpected results.
+    - Source: [](https://developer.arm.com/documentation/100748/0624/Writing-Optimized-Code/C-and-C---aliasing)
 
