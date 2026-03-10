@@ -20,7 +20,7 @@ int main(void)
         char as_char;
         unsigned char as_uchar;
     } u_value = {.as_char = (char)0x80};
-    printf("\nUnion trick\n"
+    printf("\nUnion trick (a.k.a type punnning)\n"
            "value as char %d\nvalue as unsigned char %u\n", 
            u_value.as_char, u_value.as_uchar);
 
