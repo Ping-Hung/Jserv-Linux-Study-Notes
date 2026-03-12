@@ -47,7 +47,7 @@
     - [x] Bitwise operation
     - [x] Binary representation
     - [x] Floating point
-    - [ ] Cache
+    - [x] Cache
     - [ ] Memory
     - [x] ISA
     - [ ] SMP
@@ -67,8 +67,14 @@
     - [x] Design patterns
     - [x] Unit Test
 
-5. Statistics and Probability
-    - Like statistical mechanics, 足以模擬微小尺度程式運作的各種原理
+5. Mathematics
+    - [x] Statistics and Probability
+        - Like statistical mechanics, 足以模擬微小尺度程式運作的各種原理
+    - [x] Number Theory and Abstract Algebra
+        - Foundation of computer (binary) number system and cryptography
+    - [ ] Queuing Theory
+        - Math for CPU scheduling
+    - [ ] Statistical Mechanics
 
 6. Miscellaneous
     - [ ] Cyber-Security
