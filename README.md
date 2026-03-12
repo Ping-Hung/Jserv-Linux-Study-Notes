@@ -111,3 +111,4 @@ When encounter new concepts
 
 # Resources
 1. [C99 Standards](https://www.open-std.org/jtc1/sc22/wg14/www/docs/n1256.pdf)
+2. [你所不知道的C語言](https://hackmd.io/@sysprog/c-prog/%2F%40sysprog%2Fc-programming)
