@@ -5,7 +5,7 @@
     - be ware of hyperlinks in slides.
 
 # HW 2 TODO
-- [ ] <ins>Review HW1 from other student</ins>
+- [x] <ins>Review HW1 from one student</ins>
 - [x] 檢視〈飛蛾為什麼會撲火〉影片內被推翻理論存在的謬誤，並引以為戒。
 ### 〈分析快慢指標〉
 - [ ] Learn GNU perf
