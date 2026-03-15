@@ -6,7 +6,7 @@
 
 # HW 2 TODO
 - [ ] <ins>Review HW1 from other student</ins>
-- [ ] 分享〈飛蛾為什麼會撲火〉影片內被推翻理論存在的謬誤，並引以為戒。
+- [x] 檢視〈飛蛾為什麼會撲火〉影片內被推翻理論存在的謬誤，並引以為戒。
 ### 〈分析快慢指標〉
 - [ ] Learn GNU perf
 - [ ] Learn fast and slow pointer pattern

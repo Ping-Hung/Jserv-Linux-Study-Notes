@@ -4,7 +4,7 @@
 - [ ] 是否設計實驗去驗證、論述和後續討論，落實上述 "Code Review" 提出的原則
 - [ ] 實驗設計的不足處、涵蓋程度是否全面，以及後續的改進空間
 - [ ] 共筆行文是否流暢且具體，結構規劃是否清晰，且以第一手材料為主要依循，並細緻驗證
-- [ ] 斟酌在選定的 GitHub repository 留下 code review 意見。
+- [ ] 斟酌在選定的 GitHub repository (or HackMD 筆記) 留下 code review 意見。
 - [ ] 嘗試回覆學員提出的問題。
 
 # Code Review Tips (and Mindset of a Constructive Code Reviewer) 
