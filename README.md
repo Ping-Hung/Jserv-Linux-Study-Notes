@@ -4,6 +4,18 @@
 - Flip through [Course Tips and Logistics](https://docs.google.com/presentation/d/1LIP64FQRa9J34ks9rKPmXmNQ-ZhL91qfB9KkF2nr30g/edit)
     - be ware of hyperlinks in slides.
 
+# HW 2 TODO
+- [ ] <ins>Review HW1 from other student</ins>
+- [ ] 分享〈飛蛾為什麼會撲火〉影片內被推翻理論存在的謬誤，並引以為戒。
+### 〈分析快慢指標〉
+- [ ] Learn GNU perf
+- [ ] Learn fast and slow pointer pattern
+- [ ] Design experiment using `perf stat -e cache-references,cache-misses,cycles,instructions`
+- [ ] Answer other questions in this section
+### 探討〈你所不知道的 C 語言：記憶體管理、對齊及硬體特性〉
+- [ ] 確實研讀教材
+- [ ] 搭配 linux kernel (using `git log`) 回答問題
+
 # Resource Reading Tips
 - Consult first hand resource first e.g.
     - `git log` (on Linux kernel)
