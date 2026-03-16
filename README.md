@@ -9,7 +9,9 @@
 - [x] 檢視〈飛蛾為什麼會撲火〉影片內被推翻理論存在的謬誤，並引以為戒。
 ### 〈分析快慢指標〉
 - [ ] Learn GNU perf
-- [ ] Learn fast and slow pointer pattern
+- [x] Learn fast and slow pointer pattern
+    - Fast and slow pointer has better time locality 
+        - look at asm code, in each iteration, through the use of `tmp`, the `slow` pointer can access its next (i.e. `fast->next`) before `fast` reaches its final destination (`fast->next->next`)
 - [ ] Design experiment using `perf stat -e cache-references,cache-misses,cycles,instructions`
 - [ ] Answer other questions in this section
 ### 探討〈你所不知道的 C 語言：記憶體管理、對齊及硬體特性〉
