@@ -1,11 +1,11 @@
 # Review Criteria
-- [ ] 給定題目的回覆是否完整
-- [ ] 是否參照權威材料去解讀和推理
-- [ ] 是否設計實驗去驗證、論述和後續討論，落實上述 "Code Review" 提出的原則
-- [ ] 實驗設計的不足處、涵蓋程度是否全面，以及後續的改進空間
-- [ ] 共筆行文是否流暢且具體，結構規劃是否清晰，且以第一手材料為主要依循，並細緻驗證
-- [ ] 斟酌在選定的 GitHub repository (or HackMD 筆記) 留下 code review 意見。
-- [ ] 嘗試回覆學員提出的問題。
+-  給定題目的回覆是否完整
+-  是否參照權威材料去解讀和推理
+-  是否設計實驗去驗證、論述和後續討論，落實上述 "Code Review" 提出的原則
+-  實驗設計的不足處、涵蓋程度是否全面，以及後續的改進空間
+-  共筆行文是否流暢且具體，結構規劃是否清晰，且以第一手材料為主要依循，並細緻驗證
+-  斟酌在選定的 GitHub repository (or HackMD 筆記) 留下 code review 意見。
+-  嘗試回覆學員提出的問題。
 
 # Code Review Tips (and Mindset of a Constructive Code Reviewer) 
 1. 不盲目挑出錯誤，而是思考如何讓程式碼更好。
@@ -31,7 +31,7 @@
     |_________________________|   |____________________________|
                 |                               |
                 v                               v
-        ambiguous and abstract  <<  precise description of behavior
+ambiguous and abstract      <<    precise description of behavior
 ```
 
 ## Nouns and Jargons (Technical (Reserved) Words)
