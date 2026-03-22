@@ -1,0 +1,16 @@
+# Git log tips
+```
+git log [--grep "pattern"]+
+```
+* Limit the commits output to ones with a log message that matches
+  the specified pattern (regular expression). With more than one
+  --grep=<pattern>, commits whose message matches any of the given
+  patterns are chosen
+
+* `[...]+`: what's in the braket appears one or more times.
+___
+
+```
+git log --grep "pattern" --all-match
+```
+* Limit the commits output to ones that match all given --grep, instead of ones that match at least one.

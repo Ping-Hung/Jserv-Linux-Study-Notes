@@ -133,3 +133,4 @@ When encounter new concepts
 1. [C99 Standards](https://www.open-std.org/jtc1/sc22/wg14/www/docs/n1256.pdf)
 2. [你所不知道的C語言](https://hackmd.io/@sysprog/c-prog/%2F%40sysprog%2Fc-programming)
 3. [GNU/Linux 開發工具共筆](https://hackmd.io/@sysprog/gnu-linux-dev/https%3A%2F%2Fhackmd.io%2F%40sysprog%2Fr1Psrf0KW)
+4. [(Online) Operating Systems Class](https://d3s.mff.cuni.cz/files/teaching/nswi004/text/index.html)
