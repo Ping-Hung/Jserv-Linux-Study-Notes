@@ -15,6 +15,14 @@ git log --grep "pattern" --all-match
 ```
 * Limit the commits output to ones that match all given --grep, instead of ones that match at least one.
 
+# Git Checkout tips:
+* If find a commit, could use
+```
+git checkout <commit>
+```
+
+to examine the code/status at that commit.
+
 # "Syntax" Hints:
 ```
 index A .. B
