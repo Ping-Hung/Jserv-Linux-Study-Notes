@@ -6,6 +6,7 @@
 ## Course Contacts
 - [課程討論區](https://www.facebook.com/groups/system.software2026/)
 - [私人問題區（Jserv (instructor)'s personal fanpage](https://www.facebook.com/JservFans)
+- [Course Calendar](https://calendar.google.com/calendar/u/0/embed?src=embedded.master2015@gmail.com&ctz=Asia/Taipei)
 - Course Email: `embedded.master2015@gmail.com`
 
 
