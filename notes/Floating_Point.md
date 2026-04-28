@@ -44,7 +44,7 @@ Adding 127 to $\text{Exponent}$ yeilds
 IEEE754 reserves `0x00` (value $0$) and `0xff` (value $-1$ for signed number) for subnormal and NaN
 values, so the actual range of $\text{E}$ is $[1, 254]$
 
-# Problem: Sequentially Summing up Floating Point Values Yields Error
+# Problem: Running Sum of Floating Point Values Yields Error Stemming from Rounding.
 Example Program:
 ```c
 #include <stdio.h>
@@ -70,10 +70,25 @@ float sum  = 0.0f;
 float corr = 0.0f;  /* corrective value for rounding error */
 
 for (int i = 0; i < 10000; ++i) {
-    float x = (float)(i + 1);
-    float y = x - corr;        /* apply previous correction to current addend */
+    float x = (float)(i + 1);  /* current addend */
+    float y = x - corr;        /* apply correction value to current addend */
     float t = sum + y;         /* low bits may be rounded away */
-    corr = (t - sum) - y;      /* recover lost bits */
+    corr = (t - sum) - y;      /* recover lost bits and store it in corr */
     sum  = t;
 }
 ```
+
+* Addition triggers round-off: the larger the running sum, the more bits it takes up.
+* `t = sum + y`: since `sum` might be a lot bigger than `y`, `sum + y` can trigger round-off.
+* `corr = (t - sum) - y`: 
+    * `(t - sum)`: the ***actual value*** that *is added* in this iteration, it is expected to be `y` when
+      there's no round-off.
+    * `y`: the ***expected value*** that *should be added* in this iteration.
+    * Difference of the 2 can be viewed as the *"rounding error"*: ***actual value - expected value***.
+
+## Core Theme(s)
+* Accurately capture/book-keep the *rounding error* appeared in each iteration, and
+* Adjust the final running sum accordingly by modifying the addend.
+    * The key is *adjust the running sum*, so `float y = x - corr` can actually be swapped with
+      `float y = x + corr`, since both (re-)applies rounding error back to the final sum.
+        * Only difference is that "subtracting" error is much more intuitive.

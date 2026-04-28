@@ -7,9 +7,8 @@ int main(void)
     int *p = a;     /* p points to the address of a[0] (&1) */
     int *q = &a[0];
     printf("%zu %zu\n", sizeof(a), sizeof(p));
-    printf("%p %p\n", a, &a);   /* can identify that the values are the same,
-                                   avoid using '==' operator as it involves
-                                   comparing (subtracting) two pointers of
+    printf("%p %p\n", a, &a);   /* can identify that the values are the same, avoid using '=='
+                                   operator as it involves comparing (subtracting) two pointers of
                                    different types */
 
     printf("p == q is %s\n", p == q ? "true" : "false");
