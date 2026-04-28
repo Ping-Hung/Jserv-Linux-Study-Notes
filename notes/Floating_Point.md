@@ -1,5 +1,6 @@
 # IEEE754 Format
 Float32:
+* A 32-bit storage space for values with a decimal dot (.), it's supposed to represent real numbers.
 ```
  31  30        23 22                              0
 ┌────┬──────────┬──────────────────────────────────┐
@@ -8,15 +9,20 @@ Float32:
   1b     8b                   23b
 ```
 * For convenience, **values stored at these fields** are denoted $s$, $E$, and $M$.
+* Each one of these fields could be regarded as signed integer when isolated out for further
+  disucssion.
+    * At the lowest level, they are simply binary patterns, the interpretation depends on context.
 * (Actual, numeric) value and format conversion formula
 ```math
     \text{value} = (-1)^s \times (1.M) \times 2^{E - 127}
 ```
 ## Notes on Mantissa
-* This is directly related to precision of the value that's represented by this format, wider
+* This is directly related to the precision of the value that's represented by this format, wider
   Mantissa field → better precision
-* The $1$ shown in the formula is not stored, only appears in value conversion, it's called the
+* The $1$ shown in the formula is not stored, and only appears in value conversion, it's called the
   <mark>**hidden bit**</mark>.
+* The storage field *Mantissa* is **23-bits** wide. However, it has a value range equivalent to that
+  of a **24-bit** number due to the existence of the **hidden-bit** which isn't stored physically.
 
 ## Reason for the bias (127)
 * **Main Reason**: IEEE-754 reserves `0x00` and `0xff` at Exponent field for subnormal and NaN
@@ -52,4 +58,22 @@ int main(void)
     printf("Sum: %f\n", sum);
 }
 ```
+## Root Causes
+* Mantissa of FP32 is a finite 23-bit field, (valid, accurate, error-free) value range is $[0, 2^{24}]$.
 
+
+# Kahan Summation
+* book-keeping the lower-bit errors arised from summation 
+* attempting to add it back in the next iteration.
+```c
+float sum  = 0.0f;
+float corr = 0.0f;  /* corrective value for rounding error */
+
+for (int i = 0; i < 10000; ++i) {
+    float x = (float)(i + 1);
+    float y = x - corr;        /* apply previous correction to current addend */
+    float t = sum + y;         /* low bits may be rounded away */
+    corr = (t - sum) - y;      /* recover lost bits */
+    sum  = t;
+}
+```
