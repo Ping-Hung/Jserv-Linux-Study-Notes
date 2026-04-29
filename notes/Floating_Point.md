@@ -104,8 +104,8 @@ for (int i = 0; i < 10000; ++i) {
 # Linux Kernel: Tricks Similar to Kahan Summation
 * 在大量累加中，「暫存微小誤差，並遞延補回」在 Linux Kernel 中隨處可見，也可將其視作對 Kahan
   Summation 的借鑒。
-## [Integer Compensation in Clock Subsystem:`xtime_nsec`](https://hackmd.io/@sysprog/B1dc2oq_Wx#%E6%99%82%E9%90%98%E5%AD%90%E7%B3%BB%E7%B5%B1%E7%9A%84%E6%95%B4%E6%95%B8%E8%A3%9C%E5%84%9F%EF%BC%9Axtime_nseca)
+## [Integer Compensation in Clock Subsystem:`xtime_nsec`](https://hackmd.io/@sysprog/B1dc2oq_Wx?stext=8704%3A22%3A0%3A1777469138%3AjldwKf)
 * Only shift when needed, not shifting every single iteration.
 * Use masking and bitwise `AND` to recover/compensate bits that are discarded in left-shifts.
 
-## [Welford's Online Algorithm in Tools/perf](https://hackmd.io/@sysprog/B1dc2oq_Wx#toolsperf-%E4%B8%AD%E7%9A%84-Welfords-Online-Algorithm)
+## [Welford's Online Algorithm in Tools/perf](https://hackmd.io/@sysprog/B1dc2oq_Wx?stext=9863%3A40%3A0%3A1777469177%3AdcFZIy)
