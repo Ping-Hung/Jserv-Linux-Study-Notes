@@ -1,4 +1,4 @@
-# IEEE754 Format
+# Floating Point Numbers and IEEE754 Format
 Float32:
 * A 32-bit storage space for values with a decimal dot (.), it's supposed to represent real numbers.
 ```
@@ -88,7 +88,24 @@ for (int i = 0; i < 10000; ++i) {
 
 ## Core Theme(s)
 * Accurately capture/book-keep the *rounding error* appeared in each iteration, and
-* Adjust the final running sum accordingly by modifying the addend.
+* Compensate (補償）rounding-error back to the final sum by applying it to the addend.
     * The key is *adjust the running sum*, so `float y = x - corr` can actually be swapped with
       `float y = x + corr`, since both (re-)applies rounding error back to the final sum.
         * Only difference is that "subtracting" error is much more intuitive.
+        * Also, `+` itself can introduce more rounding error and/or overflow, so is less used.
+
+## Caveats
+* If the final sum cannot be represented by `float`, Kahan summation cannot make it representable.
+* If the addend itself is distored (has rounding error) before entering the loop, the lower-bits
+  that should've entered the loop cannot be remedied by `y = x - corr`
+    * Since `x + corr` uses addition, a plausible candidate for overflow and rounding error, the use
+      of `+` to compensate rounding errors is discouraged.
+
+# Linux Kernel: Tricks Similar to Kahan Summation
+* 在大量累加中，「暫存微小誤差，並遞延補回」在 Linux Kernel 中隨處可見，也可將其視作對 Kahan
+  Summation 的借鑒。
+## [Integer Compensation in Clock Subsystem:`xtime_nsec`](https://hackmd.io/@sysprog/B1dc2oq_Wx#%E6%99%82%E9%90%98%E5%AD%90%E7%B3%BB%E7%B5%B1%E7%9A%84%E6%95%B4%E6%95%B8%E8%A3%9C%E5%84%9F%EF%BC%9Axtime_nseca)
+* Only shift when needed, not shifting every single iteration.
+* Use masking and bitwise `AND` to recover/compensate bits that are discarded in left-shifts.
+
+## [Welford's Online Algorithm in Tools/perf](https://hackmd.io/@sysprog/B1dc2oq_Wx#toolsperf-%E4%B8%AD%E7%9A%84-Welfords-Online-Algorithm)
