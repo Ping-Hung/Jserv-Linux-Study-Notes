@@ -109,3 +109,4 @@ for (int i = 0; i < 10000; ++i) {
 * Use masking and bitwise `AND` to recover/compensate bits that are discarded in left-shifts.
 
 ## [Welford's Online Algorithm in Tools/perf](https://hackmd.io/@sysprog/B1dc2oq_Wx?stext=9863%3A40%3A0%3A1777469177%3AdcFZIy)
+* Kahan 在加法已完成後回補被截去的低位；Welford 則是從一開始就拒絕讓中間值膨脹。前者是事後補救，後者是事先預防，但主體精神相同：永遠只操作差值，而非直接操作累積的大數。
