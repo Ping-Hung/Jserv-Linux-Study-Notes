@@ -54,7 +54,14 @@
     \end{align*}
 ```
 ### PELT Version
-* $k := \text{exp}(- \Delta t/ \tau)$, equivalent to $1 - \alpha$ in regular EWMA formula
+* $k := \text{exp}(- \Delta t / \tau)$, equivalent to $1 - \alpha$ in regular EWMA formula
+* $\Delta t$: this is not a fixed value, it means *time difference*
+* $\tau$ is the ***time constant*** that "controls" how frequently a decay happens.
+* Default half-life (預設半衰期 $t_{1/2}$): 32 ms, use this to derive $\tau$
+```math
+    \tau = t_{1/2} / \ln 2
+```
+
 **Formula (After Discrete n-steps Expansion)**
 ```math
     \begin{align*}
@@ -63,10 +70,17 @@
     \end{align*}
 ```
 
-## Question(s)
-* How is the convolution integral formula derived?
-    - I think the instructor intentionally left this part out due to its depth
-    - Just understand the intuition and how this might fit the case for PELT should be enough
+**Convolution Integral: Generalization from Discrete to Continuous Time** 
+```math
+    u(t) = \frac{1}{\tau} \int_{- \inf}^{t} r(s)e^{- \frac{t - s}{\tau}}
+```
+
+### Important Takaways
+* $\Delta t$: not a fixed value, it means ***time difference***
+* $\tau$ is the ***time constant*** that "controls" how frequently a decay happens.
+* View convolution here as a fancier "weighted sum" over the interval $(-\inf, t]$. The weight
+  varies as the time-difference $\Delta t$ between $t$ and $s$ increases.
+
 ## Vocabulary
 * 捲積核: Convolution Kernel
     - Convolution matrix (array) in discrete convolution
