@@ -45,6 +45,24 @@
 * Multiply real EWMA value by $2^p$ to preserve precision (after the decimal point)
 
 # PELT 的排程負載追蹤
+## Discrete Expansions after $n$ steps
+### Regular Formula
+```math
+    \begin{align*}
+        S_{n} &= \alpha \cdot x_{n} + (1 - \alpha) \cdot S_{n-1}, 0 < \alpha \leq 1  \iff \\
+        S_n &=  \alpha \[ \sum_{i = 0}^{n - 1} (1 - \alpha)^{n - i} x_i + (1 + \alpha)^{n} x_0  \]
+    \end{align*}
+```
+### PELT Version
+* $k := \text{exp}(-frac{\Delta t}{\tau})$, equivalent to $1 - \alpha$ in regular EWMA formula
+**Formula (After Discrete n-steps Expansion)**
+```math
+    \begin{align*}
+        u_{n} &= (1 - k) \[ \sum_{i = 0}^{n - 1} k^{n - i} r_{i} \] + k^n r_0  \iff \\
+        u\\[n\\] = (1 - k) \[ \sum_{i = 0}^{n - 1} k^{n - i} r\\[i\\] \] + k^n r\\[0\\]  
+    \end{align*}
+```
+
 ## Question(s)
 * How is the convolution integral formula derived?
     - I think the instructor intentionally left this part out due to its depth
