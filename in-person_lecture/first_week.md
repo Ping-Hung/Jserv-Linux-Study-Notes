@@ -4,7 +4,7 @@ Date: 2/24/2026
     - IEEE-754 floating point format
     - Statistics concepts
     - Discrete system
-||`float`|`double`|
+| |`float`|`double`|
 |:---:|:---:|:---:|
 |Mantissa| 23-bits| 53-bits|
 |Exponents| 8-bits| 11-bits|

@@ -10,8 +10,7 @@ int main(void)
 {
     float sum;
 
-    printf("regular summation from 1 to 10000\n"
-           "expecting 50005000\n");
+    printf("regular summation from 1 to 10000\n" "expecting 50005000\n");
     sum = regular_sum();
     printf("sum = %d  (as int), %.3f (as float)\n", (int)sum, sum);
 
