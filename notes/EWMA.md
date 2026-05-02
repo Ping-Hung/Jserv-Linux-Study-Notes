@@ -54,7 +54,7 @@
     \end{align*}
 ```
 ### PELT Version
-* $k := \text{exp}(-frac{\Delta t}{\tau})$, equivalent to $1 - \alpha$ in regular EWMA formula
+* $k := \text{exp}(- \Delta t/ \tau)$, equivalent to $1 - \alpha$ in regular EWMA formula
 **Formula (After Discrete n-steps Expansion)**
 ```math
     \begin{align*}
