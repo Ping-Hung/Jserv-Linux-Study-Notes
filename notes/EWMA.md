@@ -70,18 +70,29 @@
     \end{align*}
 ```
 
+|parameters|meaning|
+|----------|-------|
+|$u_n$|load estimate|
+|$r_n$|CPU 佔用比例; $0 \leq r_n \leq 1$|
+
 **Convolution Integral: Generalization from Discrete to Continuous Time** 
 ```math
-    u(t) = \frac{1}{\tau} \int_{- \infty}^{t} r(s), e^{- \frac{t - s}{\tau}}, ds
+    u(t) = \frac{1}{\tau} \int_{- \infty}^{t} r(s) e^{- \frac{t - s}{\tau}} ds
 ```
-
 ### Important Takaways
 * $\Delta t$: not a fixed value, it means ***time difference***
 * $\tau$ is the ***time constant*** that "controls" how frequently a decay happens.
 * View convolution here as a fancier "weighted sum" over the interval $(-\infty, t]$. The weight
   varies as the time-difference $\Delta t$ between $t$ and $s$ increases.
-
 ## Vocabulary
 * 捲積核: Convolution Kernel
     - Convolution matrix (array) in discrete convolution
     - The integrand in continuous convolution
+
+# Heavy-Tailed Distribution (重尾分佈）
+* **Definition**: Distribution for which extreme events happens with a far higher probability than
+  normal distribution-like exponential decay distributions.
+    * Extreme/abnormal events usually happens at the *tail* of normal distributions, maybe the name
+      *Heavy-tailed* comes from here.
+    * 現實世界的網路流量、雲端資源使用模式和 CPU 工作負載皆呈現此類分布，短暫但強度極高的負載尖峰出現的頻率不可忽視。
+
