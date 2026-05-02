@@ -33,8 +33,22 @@
    - Removes "unrelevant" info from long-ago when running this algorithm in long time window.
 3. Easy to switch from "historical noise reduction" to "real-time response" by changing $\alpha$.
 
+# EWMA: Fixed-Point Calculation 
+* In the kernel, using floating point values for EWMA is not-viable.
+    - Every context switch requires saving and restoring fo FPU registers.
+    - Has significant delay
+* [Fixed-point calculation to save this](https://hackmd.io/@sysprog/HJEPQn5ubx?stext=958%3A16%3A0%3A1777690639%3As6Gg4E)
+## Notes
+* $\alpha$ restricted to $1/W$ ($W$ == `_weighted_rcp`, must be $2^n$)
+* $w = \log_{2}{W}$
+* Replace multiplication and division with shifts.
+* Multiply real EWMA value by $2^p$ to preserve precision (after the decimal point)
 
 # PELT 的排程負載追蹤
+## Question(s)
+* How is the convolution integral formula derived?
+    - I think the instructor intentionally left this part out due to its depth
+    - Just understand the intuition and how this might fit the case for PELT should be enough
 ## Vocabulary
 * 捲積核: Convolution Kernel
     - Convolution matrix (array) in discrete convolution
