@@ -72,13 +72,13 @@
 
 **Convolution Integral: Generalization from Discrete to Continuous Time** 
 ```math
-    u(t) = \frac{1}{\tau} \int_{- \inf}^{t} r(s)e^{- \frac{t - s}{\tau}}
+    u(t) = \frac{1}{\tau} \int_{- \infty}^{t} r(s), e^{- \frac{t - s}{\tau}}, ds
 ```
 
 ### Important Takaways
 * $\Delta t$: not a fixed value, it means ***time difference***
 * $\tau$ is the ***time constant*** that "controls" how frequently a decay happens.
-* View convolution here as a fancier "weighted sum" over the interval $(-\inf, t]$. The weight
+* View convolution here as a fancier "weighted sum" over the interval $(-\infty, t]$. The weight
   varies as the time-difference $\Delta t$ between $t$ and $s$ increases.
 
 ## Vocabulary
