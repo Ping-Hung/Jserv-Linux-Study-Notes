@@ -14,10 +14,10 @@
 |:---:|:---:|
 |$S_n$|The moving average at the $n$ th iteration|
 |$\alpha$|The exponential weight: controls how sensitive $S_n$ is to historical data|
-|$x_n$|Data at the $n$th iteration|
+|$x_n$|Data at the $n$ th iteration|
 
 ## $\alpha$ Value's Impact on the Average ($S_n$)
-|small \alpha|large \alpha|
+|small $\alpha$|large $\alpha$|
 |------------|------------|
 |more weights on historical data | more weights on recent records|
 |Slower response to recently added data (long memory) | Quick response to newly added data (short memory)|
