@@ -4,6 +4,7 @@
 static inline float regular_sum();
 static inline float kahan_sum();
 static inline float kahan_sum_add_error();
+static inline float kahan_mult(int val);
 
 int main(void)
 {
@@ -21,8 +22,18 @@ int main(void)
     printf("Kahan sum: using \"+\" to re-apply errors back to running sum from 1 to 10000\n");
     sum = kahan_sum_add_error();
     printf("sum = %d  (as int), %.3f (as float)\n", (int)sum, sum);
-    
 
+    // Kahan product experiment
+    int val = 25;
+    printf("Kahan Product: applying Kahan's algorithm to running product from 1 to 25\n");
+    sum = kahan_mult(val);
+    printf("sum = %d  (as int), %.3f (as float)\n", (int)sum, sum);
+
+    val = 50;
+    printf("Kahan Product: applying Kahan's algorithm to running product from 1 to 50\n");
+    sum = kahan_mult(val);
+    printf("sum = %d  (as int), %.3f (as float)\n", (int)sum, sum);
+    
     return EXIT_SUCCESS;
 }
 
@@ -67,4 +78,26 @@ static inline float kahan_sum_add_error()
         sum = t;
     }
     return sum;
+}
+
+static inline float kahan_mult(int val)
+{
+    /* Applying kahan's algorithm when multiplying from 1 to 1000
+     *  @return product: the "running product" from 1 to 1000
+     *
+     *  ??Is this the correct way of doing this? Hesistant because of the division.
+     *      - Also, seems like the error re-application step will frequently be non-zero since
+     *      multiplication grows a lot faster than addition.
+     */
+    float product = 1.0f;
+    float corr = 0.0;
+    for (int i = 1; i <= val; i++) {
+        float x = (float)i;         // multiplicand of this round
+        float y = x - corr;         // apply error/correction to multiplicand
+        float t = product * y;
+        
+        corr = (t / product) - y;   // acutal multiplicand of this round - expeced multiplicand
+        product = t;
+    }
+    return product;
 }
