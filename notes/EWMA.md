@@ -82,7 +82,7 @@
 ### Important Takaways
 * $\Delta t$: not a fixed value, it means ***time difference***
 * $\tau$ is the ***time constant*** that "controls" how frequently a decay happens.
-* View convolution here as a fancier "weighted sum" over the interval $(-\infty, t]$. The weight
+* View convolution here as a *fancier "weighted sum" over the interval $(-\infty, t]$*. The weight
   varies as the time-difference $\Delta t$ between $t$ and $s$ increases.
 ## Vocabulary
 * 捲積核: Convolution Kernel
@@ -94,5 +94,23 @@
   normal distribution-like exponential decay distributions.
     * Extreme/abnormal events usually happens at the *tail* of normal distributions, maybe the name
       *Heavy-tailed* comes from here.
-    * 現實世界的網路流量、雲端資源使用模式和 CPU 工作負載皆呈現此類分布，短暫但強度極高的負載尖峰出現的頻率不可忽視。
+    * 現實世界的網路流量、雲端資源使用模式和 CPU
+      工作負載皆呈現此類分布，短暫但強度極高的負載尖峰出現的頻率不可忽視。
+* **Power-Law** Distribution is a *subset* of **Heavy-Tailed Distribuition** according to [Wolfram
+  Alpha](https://reference.wolfram.com/language/guide/HeavyTailDistributions.html.en?source=footer)
+  which models quite a lot real-world phenomenons (e.g. the famous Paretto's distribution (80-20
+  rule) follows the power-law).
+    * This is the reason to learn about power law distributions.
+
+# References
+1. [Heavy-Tailed Distributions](https://intro.quantecon.org/heavy_tails.html#heavy-tailed-distributions)
+2. [POWER-LAW DISTRIBUTIONS IN EMPIRICAL DATA](https://snap.stanford.edu/class/cs224w-readings/clauset09powerlaw.pdf)
+3. [冪次分佈：Power Law Distribution](https://chenhh.gitbooks.io/multiperiod_portfolio_optimization/content/physics/power_law.html)
+
+# Question(s) (About Jserv's Reading)
+* What's the point of that $\arctan$ integral, how does it connect to the behavior of $u(t)$ under
+  heavy-tailed distribution?
+* The integrand of the convolution integral (kernel) is a classic ***light tailed*** distribution
+  (i.e. as $s$ deviates more from $t$, the quicker $r(s)e^{(t - s) / \tau}$ goes towards $0$.), so
+  how does this refelect **Heavy-Tailed Distribution** which *Cauchy Distribution* is a classic one?
 
