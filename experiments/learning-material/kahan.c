@@ -1,35 +1,32 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-static inline float regular_sum();
-static inline float kahan_sum();
-static inline float kahan_sum_add_error();
+static inline float kahan_sum(int val);
+static inline float kahan_sum_add_error(int val);  /* Kahan sum, using "+" to remedy/compensate corrective values */
 static inline float kahan_mult(int val);
 
 int main(void)
 {
     float sum;
-
-    printf("regular summation from 1 to 10000\n" "expecting 50005000\n");
-    sum = regular_sum();
+    int val;
+    // Kahan sum experiments
+    val = 10000;
+    printf("Regular Kahan summation algorithm from 1 to %d\n", val);
+    sum = kahan_sum(val);
     printf("sum = %d  (as int), %.3f (as float)\n", (int)sum, sum);
 
-    printf("Regular Kahan summation algorithm from 1 to 10000\n");
-    sum = kahan_sum();
-    printf("sum = %d  (as int), %.3f (as float)\n", (int)sum, sum);
-
-    printf("Kahan sum: using \"+\" to re-apply errors back to running sum from 1 to 10000\n");
-    sum = kahan_sum_add_error();
+    printf("Kahan sum: using \"+\" to re-apply errors back to running sum. Range: 1 to %d\n", val);
+    sum = kahan_sum_add_error(val);
     printf("sum = %d  (as int), %.3f (as float)\n", (int)sum, sum);
 
     // Kahan product experiment
-    int val = 25;
-    printf("Kahan Product: applying Kahan's algorithm to running product from 1 to 25\n");
+    val = 25;
+    printf("Kahan Product: applying Kahan's algorithm to running product from 1 to %d\n", val);
     sum = kahan_mult(val);
     printf("sum = %d  (as int), %.3f (as float)\n", (int)sum, sum);
 
     val = 50;
-    printf("Kahan Product: applying Kahan's algorithm to running product from 1 to 50\n");
+    printf("Kahan Product: applying Kahan's algorithm to running product from 1 to %d\n", val);
     sum = kahan_mult(val);
     printf("sum = %d  (as int), %.3f (as float)\n", (int)sum, sum);
     
@@ -45,16 +42,16 @@ static inline float regular_sum()
     return sum;
 }
 
-static inline float kahan_sum()
+static inline float kahan_sum(int val)
 {
     /* Addition introduces round-off error: the larger a value, the wider its bit-representation
-     *  - Subtraction somehow recovers the lower-bits that are rounded off. 
+     *  - Subtraction recovers the lower-bits that are rounded off. 
      *  - Another way to "memorize"/"understand" this: `corr` is actually the error generated from
      *  rounding, to have error-free final sum, it has to be *subtracted* from the addend.
      * */
     float sum = 0.0f;
     float corr = 0.0f;
-    for (int i = 1; i <= 10000; i++) {
+    for (int i = 1; i <= val; i++) {
         float x = (float)i;     /* Addend (加數) of this iteration */
         float y = x - corr;     /* Addend minus rounding error (from last iteration) */
         float t = sum + y;      /* lower bits (of y) might be rounded off */
@@ -65,11 +62,12 @@ static inline float kahan_sum()
     return sum;
 }
 
-static inline float kahan_sum_add_error()
+static inline float kahan_sum_add_error(int val)
 {
+    /* Kahan sum, using "+" to remedy/compensate rounding errors on addend */
     float sum = 0.0f;
     float error = 0.0f;
-    for (int i = 0; i <= 10000; i++) {
+    for (int i = 1; i <= val; i++) {
         float x = (float)i;
         float y = x + error;    // re-applying error to running sum with "+" (counter-intuitive)
         float t = sum + y;
