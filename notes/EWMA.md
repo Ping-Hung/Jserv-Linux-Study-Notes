@@ -50,7 +50,7 @@
 ```math
     \begin{align*}
         S_{n} &= \alpha \cdot x_{n} + (1 - \alpha) \cdot S_{n-1}, 0 < \alpha \leq 1  \iff \\
-        S_n &=  \alpha  \sum_{i = 0}^{n - 1} (1 - \alpha)^{n - i} x_i + (1 + \alpha)^{n} x_0 
+        S_n &=  \alpha  \sum_{i = 1}^{n - 1} (1 - \alpha)^{n - i} x_i + (1 - \alpha)^{n} x_0 
     \end{align*}
 ```
 ### PELT Version
@@ -66,7 +66,7 @@
 ```math
     \begin{align*}
         u_{n} &= (1 - k) \sum_{i = 0}^{n - 1} k^{n - i} r_{i} + k^n r_0  \iff \\
-        u[n] &= (1 - k) \sum_{i = 0}^{n - 1} k^{n - i} r[i] + k^n r[0]  
+        u[n] &= (1 - k) \sum_{i = 1}^{n - 1} k^{n - i} r[i] + k^n r[0]  
     \end{align*}
 ```
 
