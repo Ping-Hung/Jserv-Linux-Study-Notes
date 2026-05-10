@@ -114,3 +114,4 @@
   (i.e. as $s$ deviates more from $t$, the quicker $r(s)e^{(t - s) / \tau}$ goes towards $0$.), so
   how does this refelect **Heavy-Tailed Distribution** which *Cauchy Distribution* is a classic one?
 
+# [HackMD Link](https://hackmd.io/JcI49U64TZuW-L5RcTluIw)
