@@ -71,6 +71,7 @@ So `10000000` is the smallest integer representable by 8-bits.
 
 ## A Short Summary
 * Computers can only represent finite number of bits in memory.
+    * a $n$-bit computer performs arithmetic modulo $2^n$
 * Computer addition: `1 + 0 = 1`; `1 + 1 = [1]0`, `[1]` is the carry bit.
     * in 1 bit storage, that carry bit is discarded, this pattern applies for all fix-width storage.
 * Positive integers get encoded by doing "conventional" decimal-to-binary conversion.
@@ -93,6 +94,14 @@ So `10000000` is the smallest integer representable by 8-bits.
 
 # Abelian Group
 * Required to implement computer addition
+* A set $A$ together with an operator $\cdot$ that takes 2 elements from $A$ and returns another
+  element in $A$ (closure property), $\cdot$ is a place holder for the operation, the group $(A,
+  \cdot)$ shall follow:
+    * Associativivity:
+    * Commutativivity:
+    * Distributivity (for multiplication):
+    * Have an **identity element** $e$
+    * For every element $x \in A$, an **inverse element** $\bar{x}$ exists such that $x \cdot \bar{x} = e$ 
 
 
 # Galois Group
