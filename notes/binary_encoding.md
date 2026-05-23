@@ -46,8 +46,9 @@ it shall satisfy $x + \bar{x} = 0$, in binary code,
 ```
 
 So, numerically `10000001` shall represent -127, and now we have 
+
 $$
-    \underbrace{127}_{\text{-1 to -127}} + \underbrace{128)_{\text{0 to 127}} = 255
+\underbrace{127}_{\text{-1 to -127}} + \underbrace{128}_{\text{0 to 127}} = 255
 $$
 
 We are missing one encoding for 8-bit storage, which contains 256 binary patterns.
@@ -74,7 +75,7 @@ So `10000000` is the smallest integer representable by 8-bits.
     * in 1 bit storage, that carry bit is discarded, this pattern applies for all fix-width storage.
 * Positive integers get encoded by doing "conventional" decimal-to-binary conversion.
 * The negative integers are defined as complements to positive integers such that $x + \bar{x} = 0$
-  for all positive integer $x$ and their complement $\bar[x}$.
+  for all positive integer $x$ and their complement $\bar{x}$.
 * By establishing the encoding of $-1$ as `11111111` (for 8-bit storage), the encoding of negative
   integers can successively be defined with a "recursive" procedure outlined above.
 * Positive integers have 0 in their MSB (sign bit), ranging from `00...01` to `011...11`.
