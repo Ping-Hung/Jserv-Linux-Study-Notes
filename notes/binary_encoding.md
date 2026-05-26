@@ -1,4 +1,20 @@
 # 解讀計算機編碼
+* The computer has fininte number of bits, but have to represent infinite values.
+* The computer performs **modular arithmetic** on addition and multiplication and discarding overflow
+  bit.
+    * The $\mod$ operation is perfromed automatically by discarding overflow bits.
+* Addition requires implementation of an **Abelian Group**
+* Real (integer) values can be visualized on a numberline, (integer) values represented by the
+  computer lies on a circle/ring since it's finite and it cycles back (wraps around).
+
+# Modular Arithmetic
+* "Wraps around"/"Cycle Back" to the smallest element
+* Can be visualized as a ring
+
+* $a \mod m$ denotes the **remainder** of $a / m$, if $a = mk + r$, we say $a$ is **congruent** to
+  $r \mod m$, denoted $a \equiv r \mod m$
+    * Similarly, if $a \neq b$, and the remainders of $a / m$ and $b / m$ are equal, it's obvious
+      that $a \mod m = b \mod m \iff a \equiv b \mod m$
 
 # Two's Complement
 * Application of modular arithmetic (clock arithmetic that "wraps around" to smallest element
@@ -82,18 +98,21 @@ So `10000000` is the smallest integer representable by 8-bits.
 * Positive integers have 0 in their MSB (sign bit), ranging from `00...01` to `011...11`.
 * Negative integers have 1 in their MSB (sign bit), ranging from `11...11` to `100...00`.
 * `len(positive_int) + len(negative_int) + 1 = 2^bit_width` shall hold.
-
-
-
-
+* 2's complement work because binary addition naturally implements modulo addition.
 
 # Modular Arithmetic
 * "wraps around" the smallest element when operation on any 2 elements "overflows"/"exceeds greatest
   element"
 * [Some properties](https://blog.sengxian.com/algorithms/mod-world)
 
+# Basic Properties of a Group
+Group = A set $A$ and an operation $\cdot$, sometimes denoted $(A, \Cdot)$.
+1. Closure 
+2. Associativity
+3. Exists **identity element** $e$ such that $\forall a \in A, a \cdot e = a$
+4. Exists **inverse element** $\bar{a}$ such that $\forall a \in A, a \cdot \bar{a} = e$
+
 # Abelian Group
-* Required to implement computer addition
 * A set $A$ together with an operator $\cdot$ that takes 2 elements from $A$ and returns another
   element in $A$ (closure property), $\cdot$ is a place holder for the operation, the group $(A,
   \cdot)$ shall follow:
@@ -103,5 +122,13 @@ So `10000000` is the smallest integer representable by 8-bits.
     * Have an **identity element** $e$
     * For every element $x \in A$, an **inverse element** $\bar{x}$ exists such that $x \cdot \bar{x} = e$ 
 
+# Fermat's Little Theorem
 
 # Galois Group
+* This relates closely to **finite group theory**
+* Note on **Modular Inverse**: This can even be used in LeetCode
+* Group Theory introduces the notion of **symmetry**: if an identity remains unchanged after some
+  transformation, then it is symmetric.
+    * e.g. A circle is still a circle if reflected about its diameter.
+* 在原文中引入 Galois Group 的主要目的是引入「對稱性」的概念，從而建構「時鐘運算」+ 「1、2
+  補數對稱軸」的模型。
