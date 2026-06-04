@@ -2,7 +2,7 @@
 * The computer has fininte number of bits, but have to represent infinite values.
 * The computer performs **modular arithmetic** on addition and multiplication and discarding overflow
   bit.
-    * The $\mod$ operation is perfromed automatically by discarding overflow bits.
+    * The $\text{mod}$ operation is perfromed automatically by discarding overflow bits.
 * Addition requires implementation of an **Abelian Group**
 * Real (integer) values can be visualized on a numberline, (integer) values represented by the
   computer lies on a circle/ring since it's finite and it cycles back (wraps around).
@@ -106,7 +106,7 @@ So `10000000` is the smallest integer representable by 8-bits.
 * [Some properties](https://blog.sengxian.com/algorithms/mod-world)
 
 # Basic Properties of a Group
-Group = A set $A$ and an operation $\cdot$, sometimes denoted $(A, \Cdot)$.
+Group = A set $A$ and an operation $\cdot$, sometimes denoted $(A, \cdot)$.
 1. Closure 
 2. Associativity
 3. Exists **identity element** $e$ such that $\forall a \in A, a \cdot e = a$
